@@ -1,0 +1,3 @@
+import Link from "next/link"; import { ArrowLeft } from "lucide-react"; import { PageHeading } from "../../components/ui"; import { NewTaskForm } from "./NewTaskForm";
+import { requireUser } from "../../../lib/auth"; import { createClient } from "../../../lib/supabase/server";
+export default async function NewTask(){await requireUser();const {data:members}=await createClient().from("users").select("id,display_name").order("display_name");return <><Link href="/tasks" style={{fontSize:12,color:"#2878e8",display:"inline-flex",gap:6,alignItems:"center",marginBottom:20}}><ArrowLeft size={14}/>Back to tasks</Link><PageHeading title="Create a new task" subtitle="Add a clear deliverable so the team can keep moving."/><NewTaskForm members={members||[]} /></>}

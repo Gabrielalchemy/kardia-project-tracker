@@ -1,0 +1,4 @@
+-- Create users through Supabase Auth first, then insert their matching IDs here.
+-- Example:
+-- insert into public.users (id,email,display_name,role) values
+-- ('AUTH_UUID','admin@smartclothing.local','Alex Morgan','admin');
